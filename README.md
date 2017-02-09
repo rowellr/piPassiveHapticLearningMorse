@@ -9,12 +9,12 @@ This project aims to assist with learning morse via a raspberryPi with a haptic 
 
 # TODO
 
-[ ] talk to motor controller
-[ ] record audio
-[*] document hardware choices
-[ ] python async audio playing
-[ ] python library for motor controller
-
+- [X] talk to motor controller
+- [ ] record audio
+- [X] document hardware choices
+- [ ] python async audio playing
+- [X] python library for motor controller
+- [ ] generate sequences on the fly
 
 # Hardware
 
