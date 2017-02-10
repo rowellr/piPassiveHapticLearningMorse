@@ -10,7 +10,7 @@ This project aims to assist with learning morse via a raspberryPi with a haptic 
 # TODO
 
 - [X] talk to motor controller
-- [ ] record audio
+- [X] record/find audio
 - [X] document hardware choices
 - [ ] python async audio playing
 - [X] python library for motor controller
@@ -23,3 +23,7 @@ This project aims to assist with learning morse via a raspberryPi with a haptic 
  * (Adafruit Vibrating Mini Motor Disc)[https://littlebirdelectronics.com.au/products/vibrating-mini-motor-disc]
 
 Links are to my local(ish) retailer of Adafruit goodness.
+
+# Credits
+
+Audio from: https://evolution.voxeo.com/tools/ under LGPL license.
