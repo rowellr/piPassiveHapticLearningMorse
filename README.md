@@ -7,14 +7,21 @@ Haptic Passive Learning of Morse for the Raspberry Pi
 This project aims to assist with learning morse code via a raspberryPi with a haptic motor and some headphones. Using techniques from the Haptic Passive Learning experiments run by the Georgia Institue of Technology.  [Their Paper](http://dl.acm.org/citation.cfm?id=2971768)
 
 
+# Dependancies:
+
+Adafruit GPIO libraries and PyAudio
+
+```apt-get install python-pyaudio adafruit-gpio```
+
+
 # TODO
 
 - [X] talk to motor controller
 - [X] record/find audio
 - [X] document hardware choices
 - [X] python library for motor controller
-- [ ] python async audio playing
-- [ ] generate sequences on the fly
+- [X] python async audio playing
+- [X] generate sequences on the fly
 
 # Hardware
 
