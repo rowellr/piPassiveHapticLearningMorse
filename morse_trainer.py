@@ -8,6 +8,9 @@
 ##################################################
 
 import time
+import string
+import random
+
 from Adafruit_DRV2605 import *
 
 drv = Adafruit_DRV2605(busnum=0)
@@ -16,194 +19,199 @@ drv = Adafruit_DRV2605(busnum=0)
 drv.begin()
 
 # I2C trigger by sending 'go' command
-drv.setMode(DRV2605_MODE_INTTRIG)  # default, internal trigger when sending GO command
+drv.setMode(DRV2605_MODE_INTTRIG)  
 drv.selectLibrary(1)
 
-def dah():
-        drv.setWaveform(0, 14)
-        drv.setWaveform(1, 0)  
-        drv.go()
-        time.sleep(0.32)
 
+##################################################
+# Dahs and Dits arrived at by trial and error
+# Feel free to find one that works for you!
+# see http://www.ti.com/lit/ds/symlink/drv2605.pdf for more info!
+##################################################
+
+def dah():
+    drv.setWaveform(0, 14)
+    drv.setWaveform(1, 0)  
+    drv.go()
+    time.sleep(0.32)
+	
 def dit():
-        drv.setWaveform(0, 1)
-        drv.setWaveform(1, 0)  
-        drv.go()
-        time.sleep(0.18)
+    drv.setWaveform(0, 1)
+    drv.setWaveform(1, 0)  
+    drv.go()
+    time.sleep(0.18)
 
 def wait_letter():
-        time.sleep(0.33)
+    time.sleep(0.33)
 
 def wait_word():
-        time.sleep(0.33)
-
+    time.sleep(0.45)
 
 def a():
-        dit(); dah();
-        wait_letter()
+    dit(); dah();
+    
 
 def b():
-        dah(); dit(); dit(); dit();
-        wait_letter()
+    dah(); dit(); dit(); dit();
+    
 
 def c():
-        dah(); dit(); dah(); dit()
-        wait_letter()
+    dah(); dit(); dah(); dit()
+    
 
 def d():
-        dah(); dit(); dit();
-        wait_letter()
+    dah(); dit(); dit();
+    
 
 def e():
-        dit();
-        wait_letter()
+    dit();
+    
 
 def f():
-        dit(); dit(); dah(); dit();
-        wait_letter()
+    dit(); dit(); dah(); dit();
+    
 
 def g():
-        dah(); dah(); dit();
-        wait_letter()
+    dah(); dah(); dit();
+    
 
 def h():
-        dit(); dit(); dit(); dit();
-        wait_letter()
+    dit(); dit(); dit(); dit();
+    
 
 def i():
-        dit(); dit();
-        wait_letter()
+    dit(); dit();
+    
 
 def j():
-        dit(); dah(); dah(); dah();
-        wait_letter()
+    dit(); dah(); dah(); dah();
+    
 
 def k():
-        dah(); dit(); dah();
-        wait_letter()
+    dah(); dit(); dah();
+    
         
 def l():
-        dit(); dah(); dit(); dit();
-        wait_letter()
+    dit(); dah(); dit(); dit();
+    
         
 def m():
-        dah(); dah();
-        wait_letter()
+    dah(); dah();
+    
         
 def n():
-        dah(); dit();
-        wait_letter()
+    dah(); dit();
+    
 
 def O():
-        dah(); dah(); dah();
-        wait_letter()
+    dah(); dah(); dah();
+    
 
 def p():
-        dit(); dah(); dah(); dit();
-        wait_letter()
+    dit(); dah(); dah(); dit();
+    
 
 def q():
-        dah(); dah(); dit(); dah();
-        wait_letter()
+    dah(); dah(); dit(); dah();
+    
 
 def r():
-        dit(); dah(); dit();
-        wait_letter()
+    dit(); dah(); dit();
+    
         
 def s():
-        dit(); dit(); dit();
-        wait_letter()
+    dit(); dit(); dit();
+    
         
 def t():
-        dah();
-        wait_letter()
+    dah();
+    
         
 def u():
-        dit(); dit(); dah();
-        wait_letter()
+    dit(); dit(); dah();
+    
         
 def v():
-        dit(); dit(); dit(); dah();
-        wait_letter()
+    dit(); dit(); dit(); dah();
+    
         
 def w():
-        dit(); dah(); dah();
-        wait_letter()
+    dit(); dah(); dah();
+    
         
 def x():
-        dah(); dit(); dit(); dah();
-        wait_letter()
+    dah(); dit(); dit(); dah();
+    
         
 def y():
-        dah(); dit(); dah(); dah();
-        wait_letter()
+    dah(); dit(); dah(); dah();
+    
         
 def z():
-        dah(); dah(); dit(); dit();
-        wait_letter()
+    dah(); dah(); dit(); dit();
+    
         
 def m1():
-        dit(); dah(); dah(); dah(); dah();
-        wait_letter()
+    dit(); dah(); dah(); dah(); dah();
+    
         
 def m2():
-        dit(); dit(); dah(); dah(); dah();
-        wait_letter()
+    dit(); dit(); dah(); dah(); dah();
+    
         
 def m3():
-        dit(); dit(); dit(); dah(); dah();
-        wait_letter()
+    dit(); dit(); dit(); dah(); dah();
+    
         
 def m4():
-        dit(); dit(); dit(); dit(); dah();
-        wait_letter()
+    dit(); dit(); dit(); dit(); dah();
+    
         
 def m5():
-        dit(); dit(); dit(); dit(); dit();
-        wait_letter()
+    dit(); dit(); dit(); dit(); dit();
+    
         
 def m6():
-        dah(); dit(); dit(); dit(); dit();
-        wait_letter()
+    dah(); dit(); dit(); dit(); dit();
+    
         
 def m7():
-        dah(); dah(); dit(); dit(); dit();
-        wait_letter()
+    dah(); dah(); dit(); dit(); dit();
+    
         
 def m8():
-        dah(); dah(); dah(); dit(); dit();
-        wait_letter()
+    dah(); dah(); dah(); dit(); dit();
+    
                 
 def m9():
-        dah(); dah(); dah(); dah(); dit();
-        wait_letter()
+    dah(); dah(); dah(); dah(); dit();
+    
         
 def m0():
-        dah(); dah(); dah(); dah(); dah();
-        wait_letter()
+    dah(); dah(); dah(); dah(); dah();
+    
 
 
-print "A"
-a()
-print "B"
-b()
+def play_morse(alphanum):
+	gettatr(self, alphanum)()
+	wait_letter()
 
 
-print "C"
-c()
-print "Q"
-q()
+def generateSequence(size, chars=string.ascii_lowercase + string.digits):
+	return random.sample(chars, size)
 
+def main(args, kwargs):
+		
+    while(1):
+        
+        # generate sequence
+		
+        sequence = generateSequence(64) 
+        
+        # play sequence!
+        for item in sequence:
+            print item
 
-print "V"
-v()
-print "K"
-k()
-print "1"
-m1()
-print "A"
-a()
-print "T"
-t()
-print "P"
-p()
+			
+			
+
