@@ -1,15 +1,23 @@
 import time
-from playsound import playsound
+import pyaudio
+import wave
 
 class Morse:
 
 	def __init__(self, drv):
 		self.drv = drv
+		self.p = pyaudio.PyAudio()
 
 	def play_letter(self, alphanum):
 		self.play_sound(alphanum)
 		getattr(self, 'morse_' + alphanum)()
 		self.wait_letter()
+		while self.stream.is_active():
+			time.sleep(0.1)
+
+		self.stream.stop_stream()
+		self.stream.close()
+		self.wf.close()
 
 	def play_string(self, letters):
 		for letter in letters:
@@ -20,7 +28,18 @@ class Morse:
 				self.play_letter(letter)
 
 	def play_sound(self, alphanum):
-		playsound("./audio/"+alphanum.upper()+".mp3", false)
+		self.wf = wave.open("./audio/" + alphanum.upper()+ ".wav")
+
+		self.stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
+						channels=wf.getnchannels(),
+						rate=wf.getframerate(),
+						output=True,
+						stream_callback=callback)
+		self.stream.start_stream()
+
+	def callback(in_data, frame_count, time_info, stats):
+		data = self.wf.readframes(frame_count)
+		return (data, pyaudio.paContinue)
 
     ##################################################
 	# Dahs and Dits arrived at by trial and error
