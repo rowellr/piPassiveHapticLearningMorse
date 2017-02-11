@@ -28,6 +28,8 @@ def main():
 	drv.selectLibrary(1)
 
 	morse_player = Morse(drv)
+
+	morse_player.play_string("vk1atp")
 	
 	while(1):
 		sequence = generateSequence(64) 

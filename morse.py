@@ -16,6 +16,7 @@ class Morse:
 			if letter == ' ':
 				self.wait_word()
 			else:
+				print letter
 				self.play_letter(letter)
 
 
