@@ -10,6 +10,7 @@ class Morse:
 
 	def play_letter(self, alphanum):
 		self.play_sound(alphanum)
+		time.sleep(0.2)
 		getattr(self, 'morse_' + alphanum)()
 		self.wait_letter()
 		while self.stream.is_active():
@@ -30,14 +31,15 @@ class Morse:
 	def play_sound(self, alphanum):
 		self.wf = wave.open("./audio/" + alphanum.upper()+ ".wav")
 
-		self.stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
-						channels=wf.getnchannels(),
-						rate=wf.getframerate(),
-						output=True,
-						stream_callback=callback)
+		self.stream = self.p.open(
+			format=self.p.get_format_from_width(self.wf.getsampwidth()),
+			channels=self.wf.getnchannels(),
+			rate=self.wf.getframerate(),
+			output=True,
+			stream_callback=self.callback)
 		self.stream.start_stream()
 
-	def callback(in_data, frame_count, time_info, stats):
+	def callback(self, in_data, frame_count, time_info, stats):
 		data = self.wf.readframes(frame_count)
 		return (data, pyaudio.paContinue)
 
