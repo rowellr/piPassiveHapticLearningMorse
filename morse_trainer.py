@@ -22,7 +22,7 @@ def generateSequence(size, chars=string.ascii_lowercase + string.digits):
 	return retval
 
 def main():
-	drv = Adafruit_DRV2605(busnum=0)
+	drv = Adafruit_DRV2605(busnum=1)
 	drv.begin()
 	drv.setMode(DRV2605_MODE_INTTRIG)  
 	drv.selectLibrary(1)
